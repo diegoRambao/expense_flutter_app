@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:spend_flutter_app/core/constants/app_colors.dart'
     show AppColors;
-import 'package:spend_flutter_app/core/theme/app_styles.dart';
+import 'package:spend_flutter_app/core/constants/app_styles.dart';
 
 class AppTheme {
   // === Light Theme ===
@@ -60,7 +61,7 @@ class AppTheme {
           fontWeight: FontWeight.w600,
           fontSize: 15,
         ),
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(6)),
         padding: const EdgeInsets.symmetric(vertical: 14, horizontal: 16),
       ),
     ),
@@ -77,12 +78,14 @@ class AppTheme {
         padding: const EdgeInsets.symmetric(vertical: 14, horizontal: 16),
       ),
     ),
-    textTheme: const TextTheme(
-      headlineLarge: AppTextStyles.headlineLarge,
-      headlineMedium: AppTextStyles.headlineMedium,
-      bodyLarge: AppTextStyles.bodyLarge,
-      bodyMedium: AppTextStyles.bodyMedium,
-      labelMedium: AppTextStyles.labelMedium,
+    textTheme: GoogleFonts.poppinsTextTheme(
+      TextTheme(
+        headlineLarge: AppTextStyles.headlineLarge,
+        headlineMedium: AppTextStyles.headlineMedium,
+        bodyLarge: AppTextStyles.bodyLarge,
+        bodyMedium: AppTextStyles.bodyMedium,
+        labelMedium: AppTextStyles.labelMedium,
+      ),
     ),
     dividerTheme: const DividerThemeData(color: AppColors.border),
     bottomNavigationBarTheme: const BottomNavigationBarThemeData(

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:spend_flutter_app/core/theme/app_theme.dart';
+import 'package:spend_flutter_app/presentation/pages/welcome_page.dart';
 
 void main() {
   runApp(const MainApp());
@@ -11,11 +12,7 @@ class MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Scaffold(
-        body: Center(
-          child: ElevatedButton(onPressed: () {}, child: const Text('Hola')),
-        ),
-      ),
+      home: WelcomePage(),
       themeMode: ThemeMode.system,
       theme: AppTheme.lightTheme,
       darkTheme: AppTheme.darkTheme,
