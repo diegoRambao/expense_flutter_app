@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_localization/flutter_localization.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:spend_flutter_app/core/constants/app_colors.dart';
+import 'package:spend_flutter_app/core/localization/app_locale.dart';
+import 'package:spend_flutter_app/core/localization/welcome_locale.dart';
 
 class WelcomePage extends StatelessWidget {
   const WelcomePage({super.key});
@@ -21,7 +24,7 @@ class WelcomePage extends StatelessWidget {
             children: [
               Center(child: SvgPicture.asset(assetName)),
               Text(
-                'Bienvenido a wallat',
+                WelcomeLocale.welcomeTitle.getString(context),
                 style: theme.textTheme.headlineMedium?.copyWith(
                   color: AppColors.surface,
                   fontSize: 32,
@@ -31,7 +34,7 @@ class WelcomePage extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.only(top: 13),
                 child: Text(
-                  'Una forma fácil de administrar tu dinero',
+                  WelcomeLocale.welcomeSubtitle.getString(context),
                   style: theme.textTheme.headlineMedium?.copyWith(
                     color: AppColors.surface,
                     fontSize: 18,
@@ -48,7 +51,7 @@ class WelcomePage extends StatelessWidget {
                     backgroundColor: AppColors.surface,
                     foregroundColor: AppColors.primary,
                   ),
-                  child: Text('Ingresar'),
+                  child: Text(WelcomeLocale.loginButton.getString(context)),
                 ),
               ),
               Spacer(),
