@@ -1,17 +1,32 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localization/flutter_localization.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:provider/provider.dart';
 import 'package:spend_flutter_app/core/constants/app_colors.dart';
-import 'package:spend_flutter_app/core/localization/app_locale.dart';
 import 'package:spend_flutter_app/core/localization/welcome_locale.dart';
+import 'package:spend_flutter_app/presentation/providers/welcome_provider.dart';
 
 class WelcomePage extends StatelessWidget {
   const WelcomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
+    return ChangeNotifierProvider(
+      create: (_) => WelcomeProvider(),
+      child: const _WelcomeView(),
+    );
+  }
+}
+
+class _WelcomeView extends StatelessWidget {
+  static const String _assetName = 'assets/welcome.svg';
+
+  const _WelcomeView();
+
+  @override
+  Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    const String assetName = 'assets/welcome.svg';
+    final welcomeProvider = context.watch<WelcomeProvider>();
 
     return Scaffold(
       backgroundColor: theme.colorScheme.primary,
@@ -22,7 +37,7 @@ class WelcomePage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Center(child: SvgPicture.asset(assetName)),
+              Center(child: SvgPicture.asset(_assetName)),
               Text(
                 WelcomeLocale.welcomeTitle.getString(context),
                 style: theme.textTheme.headlineMedium?.copyWith(
@@ -46,7 +61,9 @@ class WelcomePage extends StatelessWidget {
               SizedBox(
                 width: double.infinity,
                 child: ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    welcomeProvider.toggleSignUp();
+                  },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: AppColors.surface,
                     foregroundColor: AppColors.primary,
@@ -54,6 +71,17 @@ class WelcomePage extends StatelessWidget {
                   child: Text(WelcomeLocale.loginButton.getString(context)),
                 ),
               ),
+              Text(welcomeProvider.showSignUp.toString()),
+              if (welcomeProvider.showSignUp) ...[
+                const SizedBox(height: 10),
+                SizedBox(
+                  width: double.infinity,
+                  child: OutlinedButton(
+                    onPressed: () {},
+                    child: Text(WelcomeLocale.signUpButton.getString(context)),
+                  ),
+                ),
+              ],
               Spacer(),
             ],
           ),
