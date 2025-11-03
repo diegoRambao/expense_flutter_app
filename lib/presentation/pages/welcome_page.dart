@@ -4,6 +4,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:provider/provider.dart';
 import 'package:spend_flutter_app/core/constants/app_colors.dart';
 import 'package:spend_flutter_app/core/localization/welcome_locale.dart';
+import 'package:spend_flutter_app/presentation/pages/sign_in_page.dart';
 import 'package:spend_flutter_app/presentation/providers/welcome_provider.dart';
 
 class WelcomePage extends StatelessWidget {
@@ -62,7 +63,13 @@ class _WelcomeView extends StatelessWidget {
                 width: double.infinity,
                 child: ElevatedButton(
                   onPressed: () {
-                    welcomeProvider.toggleSignUp();
+                    Navigator.pushAndRemoveUntil(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const SignInPage(),
+                      ),
+                      (route) => false,
+                    );
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: AppColors.surface,
