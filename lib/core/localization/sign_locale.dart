@@ -11,12 +11,12 @@ mixin SignLocale {
 
   static const Map<String, dynamic> EN = {
     title: 'Sign in',
-    subtitle: '',
-    labelEmail: '',
-    labelPassword: '',
-    buttonLogin: '',
-    noAccount: '',
-    createtAccount: '',
+    subtitle: 'Hello again! Enter your credentials to log in',
+    labelEmail: 'Email',
+    labelPassword: 'Password',
+    buttonLogin: 'Login',
+    noAccount: "Don't you have an account?",
+    createtAccount: 'Create account',
   };
 
   static const Map<String, dynamic> ES = {

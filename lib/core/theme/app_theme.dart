@@ -38,7 +38,7 @@ class AppTheme {
       filled: true,
       fillColor: AppColors.surface,
       hintStyle: AppTextStyles.labelMedium,
-      contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
+      contentPadding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
       border: OutlineInputBorder(
         borderRadius: BorderRadius.circular(5),
         borderSide: const BorderSide(color: AppColors.border),
