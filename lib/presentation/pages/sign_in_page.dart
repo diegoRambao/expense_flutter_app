@@ -3,8 +3,15 @@ import 'package:flutter_localization/flutter_localization.dart';
 import 'package:spend_flutter_app/core/constants/app_colors.dart';
 import 'package:spend_flutter_app/core/localization/sign_locale.dart';
 
-class SignInPage extends StatelessWidget {
+class SignInPage extends StatefulWidget {
   const SignInPage({super.key});
+
+  @override
+  State<SignInPage> createState() => _SignInPageState();
+}
+
+class _SignInPageState extends State<SignInPage> {
+  bool showPassword = false;
 
   @override
   Widget build(BuildContext context) {
@@ -63,9 +70,17 @@ class SignInPage extends StatelessWidget {
                   const SizedBox(height: 8),
                   TextField(
                     cursorColor: AppColors.primary,
-                    obscureText: true,
+                    obscureText: !showPassword,
                     decoration: InputDecoration(
-                      suffixIcon: Icon(Icons.visibility),
+                      suffixIcon: IconButton(
+                        icon: Icon(
+                          showPassword
+                              ? Icons.visibility_off
+                              : Icons.visibility,
+                        ),
+                        onPressed: () =>
+                            setState(() => showPassword = !showPassword),
+                      ),
                       suffixIconColor: AppColors.textSecondary,
                     ),
                   ),
