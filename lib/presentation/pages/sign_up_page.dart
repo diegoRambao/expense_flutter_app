@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_localization/flutter_localization.dart';
 import 'package:spend_flutter_app/core/constants/app_colors.dart';
 import 'package:spend_flutter_app/core/localization/sign_up_locale.dart';
+import 'package:spend_flutter_app/presentation/pages/home_page.dart';
 
 class SignUpPage extends StatefulWidget {
   const SignUpPage({super.key});
@@ -104,7 +105,10 @@ class _SignUpPageState extends State<SignUpPage> {
               SizedBox(
                 width: double.infinity,
                 child: ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () => Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => HomePage()),
+                  ),
                   child: Text(SignUpLocale.buttonSignUp.getString(context)),
                 ),
               ),
