@@ -4,7 +4,7 @@ import 'package:provider/provider.dart';
 import 'package:spend_flutter_app/core/constants/app_colors.dart';
 import 'package:spend_flutter_app/core/localization/sign_up_locale.dart';
 import 'package:spend_flutter_app/core/utils/validators.dart';
-import 'package:spend_flutter_app/presentation/components/labeld_field.dart';
+import 'package:spend_flutter_app/presentation/components/labeled_text_field.dart';
 import 'package:spend_flutter_app/presentation/providers/sign_up_view_model.dart';
 
 class SignUpPage extends StatelessWidget {
