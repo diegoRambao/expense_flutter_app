@@ -20,7 +20,7 @@ class SignUpPage extends StatelessWidget {
 }
 
 class _SignUpPageView extends StatelessWidget {
-  static const spaceBetweenFields = 16.0;
+  static const double spaceBetweenFields = 16;
   final _formKey = GlobalKey<FormState>();
 
   void handleSubmit() {
