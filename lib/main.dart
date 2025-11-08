@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localization/flutter_localization.dart';
+import 'package:spend_flutter_app/src/core/di/injection_container.dart' as di;
 import 'package:spend_flutter_app/src/core/localization/app_locale.dart';
 import 'package:spend_flutter_app/src/core/theme/app_theme.dart';
 import 'package:spend_flutter_app/src/features/auth/presentation/pages/welcome_page.dart';
@@ -8,6 +9,7 @@ final localization = FlutterLocalization.instance;
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await di.initDependencies();
   await localization.ensureInitialized();
 
   runApp(const MainApp());
