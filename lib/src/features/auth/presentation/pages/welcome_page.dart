@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_localization/flutter_localization.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:provider/provider.dart';
-import 'package:spend_flutter_app/core/constants/app_colors.dart';
-import 'package:spend_flutter_app/core/localization/welcome_locale.dart';
-import 'package:spend_flutter_app/presentation/pages/sign_in_page.dart';
-import 'package:spend_flutter_app/presentation/providers/welcome_provider.dart';
+import 'package:spend_flutter_app/src/core/constants/app_colors.dart';
+import 'package:spend_flutter_app/src/core/localization/welcome_locale.dart';
+import 'package:spend_flutter_app/src/features/auth/presentation/pages/sign_in_page.dart';
+import 'package:spend_flutter_app/src/features/auth/presentation/providers/welcome_provider.dart';
 
 class WelcomePage extends StatelessWidget {
   const WelcomePage({super.key});

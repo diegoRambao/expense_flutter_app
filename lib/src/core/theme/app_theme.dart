@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:spend_flutter_app/core/constants/app_colors.dart'
+import 'package:spend_flutter_app/src/core/constants/app_colors.dart'
     show AppColors;
-import 'package:spend_flutter_app/core/constants/app_styles.dart';
+import 'package:spend_flutter_app/src/core/constants/app_styles.dart';
 
 class AppTheme {
   // === Light Theme ===
