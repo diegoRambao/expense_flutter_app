@@ -21,12 +21,6 @@ class SignUpPage extends StatelessWidget {
 
 class _SignUpPageView extends StatelessWidget {
   static const double spaceBetweenFields = 16;
-  final _formKey = GlobalKey<FormState>();
-
-  void handleSubmit() {
-    final isValid = _formKey.currentState?.validate() ?? false;
-    if (!isValid) return;
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -63,7 +57,7 @@ class _SignUpPageView extends StatelessWidget {
                 ),
                 const SizedBox(height: 40),
                 Form(
-                  key: _formKey,
+                  key: viewModel.formKey,
                   child: ListView(
                     shrinkWrap: true,
                     children: [
@@ -128,7 +122,7 @@ class _SignUpPageView extends StatelessWidget {
                       SizedBox(
                         width: double.infinity,
                         child: ElevatedButton(
-                          onPressed: () => handleSubmit(),
+                          onPressed: () => viewModel.createUser(context),
                           child: Text(
                             SignUpLocale.buttonSignUp.getString(context),
                           ),

@@ -1,5 +1,5 @@
 class UserModel {
-  final String id;
+  final String? id;
   final String email;
   final bool emailVisibility;
   final bool verified;
@@ -11,7 +11,7 @@ class UserModel {
   final DateTime updated;
 
   UserModel({
-    required this.id,
+    this.id,
     required this.email,
     required this.emailVisibility,
     required this.verified,

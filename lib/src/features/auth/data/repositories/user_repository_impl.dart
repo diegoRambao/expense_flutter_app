@@ -1,3 +1,4 @@
+import 'package:spend_flutter_app/src/features/auth/domain/models/create_user_entity.dart';
 import 'package:spend_flutter_app/src/features/auth/domain/repositories/user_repository.dart';
 
 import '../../domain/models/user_entity.dart';
@@ -13,5 +14,12 @@ class UserRepositoryImpl implements UserRepository {
   Future<List<UserEntity>> getUsers() async {
     final responseModel = await remoteDataSource.getUsers();
     return UserMapper.toEntityList(responseModel.items);
+  }
+
+  @override
+  Future<UserEntity> createUser(CreateUserEntity newUser) async {
+    final model = UserMapper.toCreateModel(newUser);
+    final createdModel = await remoteDataSource.createUser(model);
+    return UserMapper.toEntity(createdModel);
   }
 }

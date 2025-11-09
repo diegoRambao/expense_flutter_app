@@ -1,5 +1,7 @@
-import 'package:spend_flutter_app/src/features/auth/data/entities/user_model.dart';
-import 'package:spend_flutter_app/src/features/auth/domain/models/user_entity.dart';
+import '../../domain/models/create_user_entity.dart';
+import '../../domain/models/user_entity.dart';
+import '../entities/create_user_model.dart';
+import '../entities/user_model.dart';
 
 class UserMapper {
   static UserEntity toEntity(UserModel model) {
@@ -13,6 +15,16 @@ class UserMapper {
   }
 
   static List<UserEntity> toEntityList(List<UserModel> models) {
-    return models.map((model) => toEntity(model)).toList();
+    return models.map(toEntity).toList();
+  }
+
+  static CreateUserModel toCreateModel(CreateUserEntity entity) {
+    return CreateUserModel(
+      email: entity.email,
+      emailVisibility: entity.emailVisibility,
+      name: entity.name,
+      password: entity.password,
+      passwordConfirm: entity.passwordConfirm,
+    );
   }
 }
