@@ -43,7 +43,10 @@ class UserRemoteDataSourceImpl implements UserRemoteDataSource {
       final body = json.decode(response.body);
 
       if (body['data'] != null && body['data']['email'] != null) {
-        final emailError = body['data']['email'];
+        final emailError = body['data']['email']['message'];
+        if (emailError.toString().toLowerCase().contains('unique')) {
+          throw UserAlreadyExistsException(emailError.toString());
+        }
         throw UserEmailException(emailError.toString());
       }
 

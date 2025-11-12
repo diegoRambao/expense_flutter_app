@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:spend_flutter_app/src/core/di/injection_container.dart';
+import 'package:spend_flutter_app/src/core/errors/exceptions.dart';
 import 'package:spend_flutter_app/src/features/auth/domain/models/create_user_entity.dart';
 import 'package:spend_flutter_app/src/features/auth/domain/usecases/create_user_usecase.dart';
 
@@ -51,13 +52,23 @@ class SignUpViewModel extends ChangeNotifier {
     try {
       await usecase.execute(newUser);
       Fluttertoast.showToast(
-        msg: "This is Center Short Toast",
+        msg: "Usuario creado exitosamente",
         toastLength: Toast.LENGTH_SHORT,
-        gravity: ToastGravity.CENTER,
+        gravity: ToastGravity.TOP,
+        timeInSecForIosWeb: 1,
+        backgroundColor: Colors.green,
+        textColor: Colors.white,
+        fontSize: 16.0,
+      );
+    } on UserAlreadyExistsException catch (_) {
+      Fluttertoast.showToast(
+        msg: "El Correo ya está en uso",
+        toastLength: Toast.LENGTH_SHORT,
+        gravity: ToastGravity.TOP,
         timeInSecForIosWeb: 1,
         backgroundColor: Colors.red,
         textColor: Colors.white,
-        fontSize: 16.0,
+        fontSize: 14,
       );
     } catch (e) {
       Fluttertoast.showToast(
