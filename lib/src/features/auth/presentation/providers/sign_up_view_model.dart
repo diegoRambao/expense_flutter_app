@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_localization/flutter_localization.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:spend_flutter_app/src/core/di/injection_container.dart';
 import 'package:spend_flutter_app/src/core/errors/exceptions.dart';
+import 'package:spend_flutter_app/src/core/localization/sign_up_locale.dart';
 import 'package:spend_flutter_app/src/features/auth/domain/models/create_user_entity.dart';
 import 'package:spend_flutter_app/src/features/auth/domain/usecases/create_user_usecase.dart';
 
@@ -40,6 +42,11 @@ class SignUpViewModel extends ChangeNotifier {
     final isValid = formKey.currentState?.validate() ?? false;
     if (!isValid) return;
 
+    final emailExistsError = SignUpLocale.labelEmailAlreadyExists.getString(
+      context,
+    );
+    final successMessage = SignUpLocale.successFullSignUp.getString(context);
+
     final usecase = getIt<CreateUserUseCase>();
     final newUser = CreateUserEntity(
       email: emailController.text,
@@ -52,7 +59,7 @@ class SignUpViewModel extends ChangeNotifier {
     try {
       await usecase.execute(newUser);
       Fluttertoast.showToast(
-        msg: "Usuario creado exitosamente",
+        msg: successMessage,
         toastLength: Toast.LENGTH_SHORT,
         gravity: ToastGravity.TOP,
         timeInSecForIosWeb: 1,
@@ -62,7 +69,7 @@ class SignUpViewModel extends ChangeNotifier {
       );
     } on UserAlreadyExistsException catch (_) {
       Fluttertoast.showToast(
-        msg: "El Correo ya está en uso",
+        msg: emailExistsError,
         toastLength: Toast.LENGTH_SHORT,
         gravity: ToastGravity.TOP,
         timeInSecForIosWeb: 1,

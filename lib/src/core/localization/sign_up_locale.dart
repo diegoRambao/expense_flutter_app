@@ -11,6 +11,9 @@ mixin SignUpLocale {
   static const String login = 'sign_up_login';
   static const String labelPasswordConfirmation =
       'sign_up_label_password_confirmation';
+  static const String successFullSignUp = 'sign_up_success_full_sign_up';
+  static const String labelEmailAlreadyExists =
+      "sign_up_label_email_already_exists";
 
   // Errors Labels
   static const String errorEmptyField = 'sign_up_error_empty_field';
@@ -28,12 +31,14 @@ mixin SignUpLocale {
     buttonSignUp: 'Sign Up',
     yesAccount: 'Do you already have an account?',
     login: 'Login In',
+    successFullSignUp: 'Successfully signed up',
 
     // Errors
     errorEmptyField: 'This field cannot be empty',
     errorInvalidEmail: 'Please enter a valid email address',
     errorPasswordMismatch: 'Passwords do not match',
     errorWeakPassword: 'Password must have at least 8 characters',
+    labelEmailAlreadyExists: 'Email already exists',
   };
 
   static const Map<String, dynamic> ES = {
@@ -46,11 +51,13 @@ mixin SignUpLocale {
     buttonSignUp: 'Crear cuenta',
     yesAccount: '¿Ya tienes una cuenta?',
     login: 'Inicia Sesión',
+    successFullSignUp: 'Registro exitoso',
 
     // Errors
     errorEmptyField: 'Este campo no puede estar vacío',
     errorInvalidEmail: 'Por favor ingresa un correo válido',
     errorPasswordMismatch: 'Las contraseñas no coinciden',
     errorWeakPassword: 'La contraseña debe tener al menos 8 caracteres',
+    labelEmailAlreadyExists: 'El correo ya existe',
   };
 }
