@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_localization/flutter_localization.dart';
 import 'package:provider/provider.dart';
 import 'package:spend_flutter_app/src/core/constants/app_colors.dart';
-import 'package:spend_flutter_app/src/core/localization/sign_up_locale.dart';
+import 'package:spend_flutter_app/src/core/localization/auth/sign_up_locale.dart';
 import 'package:spend_flutter_app/src/core/utils/validators.dart';
 import 'package:spend_flutter_app/src/features/auth/presentation/components/labeled_text_field.dart';
 import 'package:spend_flutter_app/src/features/auth/presentation/providers/sign_up_view_model.dart';

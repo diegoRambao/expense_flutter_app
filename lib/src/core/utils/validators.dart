@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localization/flutter_localization.dart';
-import 'package:spend_flutter_app/src/core/localization/sign_up_locale.dart';
+import 'package:spend_flutter_app/src/core/localization/auth/sign_up_locale.dart';
 
 class AppValidators {
   static String? requiredField(String? value, BuildContext context) {

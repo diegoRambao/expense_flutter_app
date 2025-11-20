@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localization/flutter_localization.dart';
 import 'package:spend_flutter_app/src/core/constants/app_colors.dart';
-import 'package:spend_flutter_app/src/core/localization/sign_locale.dart';
+import 'package:spend_flutter_app/src/core/localization/auth/sign_locale.dart';
 
 class EmailVerificationPage extends StatelessWidget {
   const EmailVerificationPage({super.key});

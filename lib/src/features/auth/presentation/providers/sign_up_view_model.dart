@@ -3,7 +3,7 @@ import 'package:flutter_localization/flutter_localization.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:spend_flutter_app/src/core/di/injection_container.dart';
 import 'package:spend_flutter_app/src/core/errors/exceptions.dart';
-import 'package:spend_flutter_app/src/core/localization/sign_up_locale.dart';
+import 'package:spend_flutter_app/src/core/localization/auth/sign_up_locale.dart';
 import 'package:spend_flutter_app/src/features/auth/domain/models/create_user_entity.dart';
 import 'package:spend_flutter_app/src/features/auth/domain/usecases/create_user_usecase.dart';
 import 'package:spend_flutter_app/src/features/auth/presentation/pages/email_verification_page.dart';
