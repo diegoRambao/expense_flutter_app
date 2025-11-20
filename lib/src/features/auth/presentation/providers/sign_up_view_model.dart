@@ -6,6 +6,7 @@ import 'package:spend_flutter_app/src/core/errors/exceptions.dart';
 import 'package:spend_flutter_app/src/core/localization/sign_up_locale.dart';
 import 'package:spend_flutter_app/src/features/auth/domain/models/create_user_entity.dart';
 import 'package:spend_flutter_app/src/features/auth/domain/usecases/create_user_usecase.dart';
+import 'package:spend_flutter_app/src/features/auth/presentation/pages/email_verification_page.dart';
 
 class SignUpViewModel extends ChangeNotifier {
   final nameController = TextEditingController();
@@ -48,12 +49,13 @@ class SignUpViewModel extends ChangeNotifier {
     final successMessage = SignUpLocale.successFullSignUp.getString(context);
 
     final usecase = getIt<CreateUserUseCase>();
+
     final newUser = CreateUserEntity(
       email: emailController.text,
       emailVisibility: true,
       name: nameController.text,
       password: passwordController.text,
-      passwordConfirm: passwordController.text,
+      passwordConfirm: confirmPasswordController.text,
     );
 
     try {
@@ -67,6 +69,14 @@ class SignUpViewModel extends ChangeNotifier {
         textColor: Colors.white,
         fontSize: 14,
       );
+      if (context.mounted) {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => const EmailVerificationPage(),
+          ),
+        );
+      }
     } on UserAlreadyExistsException catch (_) {
       Fluttertoast.showToast(
         msg: emailExistsError,

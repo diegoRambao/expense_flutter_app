@@ -8,6 +8,9 @@ mixin SignLocale {
   static const String buttonLogin = 'sign_button_login';
   static const String noAccount = 'sign_no_account';
   static const String createtAccount = 'sign_create_account';
+  static const String verifyEmailTitle = 'sign_verify_email_title';
+  static const String verifyEmailMessage = 'sign_verify_email_message';
+  static const String verifyEmailButton = 'sign_verify_email_button';
 
   static const Map<String, dynamic> EN = {
     title: 'Sign in',
@@ -17,6 +20,10 @@ mixin SignLocale {
     buttonLogin: 'Login',
     noAccount: "Don't you have an account?",
     createtAccount: 'Create account',
+    verifyEmailTitle: 'Verify your email',
+    verifyEmailMessage:
+        'We have sent an email to your account. Please verify it.',
+    verifyEmailButton: 'Back to Login',
   };
 
   static const Map<String, dynamic> ES = {
@@ -27,5 +34,9 @@ mixin SignLocale {
     buttonLogin: 'Iniciar sesión',
     noAccount: '¿No tienes una cuenta?',
     createtAccount: 'Crear cuenta',
+    verifyEmailTitle: 'Verifica tu correo',
+    verifyEmailMessage:
+        'Hemos enviado un correo a tu cuenta. Por favor verifícalo.',
+    verifyEmailButton: 'Volver al inicio',
   };
 }
